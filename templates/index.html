@@ -22,6 +22,10 @@
                 <label for="desc" class="form-label">desc</label>
                 <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
             </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Photos</label>
+                <input type="file" name="pic" id="pic" accept="photo">
+            </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
 
@@ -29,15 +33,15 @@
         <div class="allnotes my-3 row">
             {% for i in notes %}
             <div class="card m-2" style="width: 18rem;">
+                <img src="{{i.img}}" alt="" >
                 <div class="card-body">
-                    <h5 class="card-title">{{i.id}} - {{i.title}}</h5>
+                    <h5 class="card-title">{{i.title}}</h5>
                     <p class="card-text">{{i.desc}}</p>
-                    <a href="/{{i.id}}/delete/" class="btn btn-primary">Go somewhere</a>
+                    <a href="/{{i.id}}/delete/" class="btn btn-primary">Delete</a>
                 </div>
             </div>
             {% endfor %}
         </div>
-
 
     </div>
 </body>

@@ -7,8 +7,9 @@ def index(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         desc = request.POST.get('desc')
+        pic = request.POST.get('pic')
 
-        note = Notes(title=title,desc=desc,time=datetime.today())
+        note = Notes(title=title,desc=desc,img=pic,time=datetime.today())
         note.save()
         return redirect("/")
     else:
@@ -16,10 +17,10 @@ def index(request):
         param = {"notes":notes}
         return render(request, 'index.html',param)
 
-def delete(request,nid):
+def delete(request,id):
     if request.method == "GET":
         # id = nid
-        instance = Notes.objects.get(id=nid)
+        instance = Notes.objects.get(id=id)
         instance.delete()
         return redirect('/')
 

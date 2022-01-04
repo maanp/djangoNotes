@@ -6,6 +6,7 @@ class Notes(models.Model):
     title = models.CharField(max_length=50)
     desc = models.TextField()
     time=models.TimeField()
+    img = models.ImageField(upload_to='static/img', height_field=None, width_field=None, max_length=None,default=None)
 
 
     def __str__(self):
